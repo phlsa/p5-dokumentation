@@ -9,6 +9,5 @@ void setup()
 }
 
 void draw(){  
-  text("Hello Web!",20,20);
-  println("Hello ErrorLog!");
+  text("Hello sketch one!",20,20);
 }
