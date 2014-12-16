@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dokumentation</title>
+</head>
+<script type="text/javascript" src="src/underscore.js"></script>
+<script type="text/javascript" src="src/jquery.js"></script>
+<script type="text/javascript" src="src/processing.js"></script>
+<body>
+
+</body>
+<script type="text/javascript">
+  $.ajax({
+    url: "./content/test.txt", 
+    success: function(res) {
+      console.log(String.split(res, "\n"));
+      _.each( String.split(res, "\n"), function(item) {
+        $('body').append( $('<canvas data-processing-sources="content/'+ item +'"></canvas>') );
+      });
+    },
+    dataType: "text"
+  });
+</script>
+</html>
