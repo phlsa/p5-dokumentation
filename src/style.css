@@ -17,6 +17,8 @@ body {
 	width: 1220px;
 	margin-top:30px;
 	margin-left:30px;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
 	box-sizing:border-box;
 	
 	cursor:default;
@@ -69,24 +71,37 @@ body {
 }
 
 .text {
-	float:left;
+	float:right;
 	margin-top:20px;
 }
 .t1 {
 	width: 290px;
+	-webkit-column-count: 1;
 	-moz-column-count: 1;
+	column-count: 1;
+  -webkit-column-gap: 20px;
   -moz-column-gap: 20px;
+	column-gap: 20px;
 }
 .t3 {
 	width: 910px;
+	-webkit-column-count: 3;
 	-moz-column-count: 3;
+ 	column-count: 3;
+  -webkit-column-gap: 20px;
   -moz-column-gap: 20px;
+	column-gap: 20px;
 }
 
 .sketch {
 	width:600px;
 	height:600px;
 	border: 1px solid #ccc;
-	float:right;
+	float:left;
+	margin-top:20px;
+}
+.image{
+	width: 600px;
+	float:left;
 	margin-top:20px;
 }

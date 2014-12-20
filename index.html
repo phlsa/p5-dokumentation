@@ -31,12 +31,12 @@
 
         {{#each sketches}}
           <div class="section">
-            <div class="text t1">{{text}}</div>
             {{#if isPDE}}
               <canvas class="sketch" data-processing-sources="{{url}}"></canvas>
             {{else}}
-              <img src="{{url}}">
+              <img class="image" src="{{url}}">
             {{/if}}
+            <div class="text t1">{{text}}</div>
           </div>
         {{/each}}
     
