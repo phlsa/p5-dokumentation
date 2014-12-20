@@ -2,14 +2,20 @@ var attemptSections = 50;
 var attemptSketches = 50;
 
 var cat = String.concat;
+var docify = {};
 
-$('body').append(render());
+render();
 
 function render() {
   var source = $('#section-template').html();
   var template = Handlebars.compile(source);
-  var html = template(data);
-  return html;
+  var data = parseContent('./content');
+  _.delay(function() {
+    console.log(_.compact(data));
+    var html = template(_.compact(data));
+    $('body').append(html);
+    docify.ready();
+  }, 2000);
 }
 
 function parseContent(basePath) {
@@ -18,7 +24,7 @@ function parseContent(basePath) {
 
     // Attempt to load the headline file of a section
     loadText(cat(basePath, "/", i, "/headline.txt"), function(headlineResponse) {
-      var section = {headline: headlineResponse, text: "", sketches: []};
+      var section = {title: headlineResponse, text: "", sketches: []};
 
       // Attempt to load text file
       loadText(cat(basePath, "/", i, "/text.txt"), function(textResponse) {

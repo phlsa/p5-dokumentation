@@ -1,6 +1,6 @@
 
 
-window.onload = function() {
+docify.ready = function() {
 
     var selectedChapter = 0;
     
