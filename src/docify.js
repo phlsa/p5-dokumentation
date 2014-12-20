@@ -27,8 +27,21 @@ function parseContent(basePath) {
       
       // Attempt to load sketches
       _.each(numberedArray(1, attemptSketches), function(j) {
+        var sketchItem = {};
+
         loadText(cat(basePath, "/", i, "/", j, ".pde"), function(pdeResponse) {
-          section.sketches[j] = cat(basePath, "/", i, "/", j, ".pde");
+          sketchItem.url = cat(basePath, "/", i, "/", j, ".pde");
+          sketchItem.isPDE = true;
+          section.sketches[j] = sketchItem;
+        });
+        loadText(cat(basePath, "/", i, "/", j, ".png"), function(pngResponse) {
+          sketchItem.url = cat(basePath, "/", i, "/", j, ".png");
+          sketchItem.isPDE = false;
+          section.sketches[j] = sketchItem;
+        });
+        loadText(cat(basePath, "/", i, "/", j, ".txt"), function(itemTextResponse) {
+          sketchItem.text = itemTextResponse;
+          section.sketches[j] = sketchItem;
         });
       });
 
