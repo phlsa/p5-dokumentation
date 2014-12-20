@@ -14,20 +14,33 @@
 
 </body>
 <script id="section-template" type="text/x-handlebars-template">
-  {{#each this}}
-    <div>
-      <h2>{{title}}</h2>
-      <div>{{text}}</div>
-      <ul>
+  <div class="menu">
+    {{#each this}}
+      <div class="menu-entry">{{title}}</div>
+    {{/each}}
+  </div>
+
+  <div class="content">
+    {{#each this}}
+      <div class="chapter">
+
+        <div class="section">
+          {{!-- <h3>{{title}}</h3> --}}
+          <div class="text t3">{{text}}</div>
+        </div> 
+
         {{#each sketches}}
-          <li>
-            <canvas data-processing-sources="{{url}}"></canvas>
-            <div>{{text}}</div>
-          </li>
+          <div class="section">
+            <div class="text t1">{{text}}</div>
+            <canvas class="sketch" data-processing-sources="{{url}}"></canvas>
+          </div>
         {{/each}}
-      </ul>
-    </div>
-  {{/each}}
+    
+      </div>
+    {{/each}}
+  </div>
+
 </script>
 <script type="text/javascript" src="src/docify.js"></script>
+<script type="text/javascript" src="src/behaviour.js"></script>
 </html>
