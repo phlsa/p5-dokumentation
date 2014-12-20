@@ -27,7 +27,7 @@ function parseContent(basePath) {
       
       // Attempt to load sketches
       _.each(numberedArray(1, attemptSketches), function(j) {
-        var sketchItem = {};
+        var sketchItem = {url: "", text:"", isPDE: false};
 
         loadText(cat(basePath, "/", i, "/", j, ".pde"), function(pdeResponse) {
           sketchItem.url = cat(basePath, "/", i, "/", j, ".pde");
