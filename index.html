@@ -24,12 +24,14 @@
     {{#each this}}
       <div class="chapter">
 
-        <h3>{{title}}</h3>
-        <div class="t3">{{text}}</div>
-    
+        <div class="section">
+          {{!-- <h3>{{title}}</h3> --}}
+          <div class="text t3">{{text}}</div>
+        </div> 
+
         {{#each sketches}}
           <div class="section">
-            <div class="t1">{{text}}</div>
+            <div class="text t1">{{text}}</div>
             <canvas class="sketch" data-processing-sources="{{url}}"></canvas>
           </div>
         {{/each}}

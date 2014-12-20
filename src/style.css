@@ -34,9 +34,12 @@ body {
 }
 
 .menu-entry {
-	margin:10px 0px;
+	margin-top:10px;
 	font-weight: bold;	
 	color: #aaa;
+}
+.menu-entry:first-child {
+	margin-top:20px;
 }
 .menu-entry:hover {
 	color: #777;
@@ -61,33 +64,23 @@ body {
 	display: none;
 }
 
-.separator {
-	clear:both;
-	border-width: 1px 0px 0px 0px;
-	border-style: solid;
-	margin: 20px 0px;
-}
-
 .section {
 	clear:both;
 }
 
-li {
-	
+.text {
+	float:left;
+	margin-top:20px;
 }
-
 .t1 {
 	width: 290px;
 	-moz-column-count: 1;
   -moz-column-gap: 20px;
-	float:left;
-	margin-bottom: 20px;
 }
 .t3 {
 	width: 910px;
 	-moz-column-count: 3;
   -moz-column-gap: 20px;
-	margin-bottom: 20px;
 }
 
 .sketch {
@@ -95,5 +88,5 @@ li {
 	height:600px;
 	border: 1px solid #ccc;
 	float:right;
-	margin-bottom:20px;
+	margin-top:20px;
 }
