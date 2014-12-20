@@ -19,12 +19,9 @@ function parseContent(basePath) {
     // Attempt to load the headline file of a section
     loadText(cat(basePath, "/", i, "/headline.txt"), function(headlineResponse) {
       var section = {headline: headlineResponse, text: "", sketches: []};
-      console.log(section);
 
       // Attempt to load text file
-      console.log ("Attempting to load: " + cat(basePath, "/", i, "/text.txt"));
       loadText(cat(basePath, "/", i, "/text.txt"), function(textResponse) {
-        console.log("Loaded some text.txt");
         section.text = textResponse;
       });
       
