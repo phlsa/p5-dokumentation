@@ -14,30 +14,44 @@ function render() {
 
 function parseContent(basePath) {
   var allContent = [];
-  for (var i=0; i<attemptSections; i++) {
+  _.each(numberedArray(1, attemptSections), function(i) {
+
     // Attempt to load the headline file of a section
     loadText(cat(basePath, "/", i, "/headline.txt"), function(headlineResponse) {
       var section = {headline: headlineResponse, text: "", sketches: []};
+      console.log(section);
+
       // Attempt to load text file
-      loadText(cat(basePath, "/text.txt"), function(textResponse) {
+      console.log ("Attempting to load: " + cat(basePath, "/", i, "/text.txt"));
+      loadText(cat(basePath, "/", i, "/text.txt"), function(textResponse) {
+        console.log("Loaded some text.txt");
         section.text = textResponse;
       });
+      
       // Attempt to load sketches
-      for (var j=0; j<attemptSketches; j++) {
+      _.each(numberedArray(1, attemptSketches), function(j) {
         loadText(cat(basePath, "/", i, "/", j, ".pde"), function(pdeResponse) {
           section.sketches[j] = cat(basePath, "/", i, "/", j, ".pde");
         });
-      }
+      });
+
       allContent[i] = section;
     });
-  }
+  });
+
   return allContent;
 }
 
-function loadText(path, success) {
+function loadText(path, successFunction) {
   $.ajax({
-    url: path, 
-    success: success,
-    dataType: "text"
+    url: path,
+    dataType: "text",
+    success: successFunction
   });
+}
+
+function numberedArray(from, to) {
+  var ar = [];
+  for (var i=from; i<=to; i++) {ar.push(i)}
+  return ar;
 }
