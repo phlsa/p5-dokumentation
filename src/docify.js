@@ -3,6 +3,14 @@ var attemptSketches = 50;
 
 var cat = String.concat;
 
+$('body').append(render());
+
+function render() {
+  var source = $('#section-template').html();
+  var template = Handlebars.compile(source);
+  var html = template(data);
+  return html;
+}
 
 function parseContent(basePath) {
   var allContent = [];

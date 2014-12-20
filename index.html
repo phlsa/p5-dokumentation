@@ -7,9 +7,25 @@
 <script type="text/javascript" src="src/jquery.js"></script>
 <script type="text/javascript" src="src/processing.js"></script>
 <script type="text/javascript" src="src/handlebars.js"></script>
+<script type="text/javascript" src="src/dummyData.js"></script>
 <body>
 
 </body>
-<script id="section-template" type="text/x-handlebars-template"></script>
+<script id="section-template" type="text/x-handlebars-template">
+  {{#each this}}
+    <div>
+      <h2>{{title}}</h2>
+      <div>{{text}}</div>
+      <ul>
+        {{#each sketches}}
+          <li>
+            <canvas data-processing-sources="{{url}}"></canvas>
+            <div>{{text}}</div>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/each}}
+</script>
 <script type="text/javascript" src="src/docify.js"></script>
 </html>
