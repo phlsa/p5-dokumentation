@@ -17,6 +17,7 @@ function render() {
     var html = template(cleanedData);
     $('body').append(html);
     docify.ready();
+    initializeSketches();
   }
 }
 
@@ -112,4 +113,11 @@ function numberedArray(from, to) {
   var ar = [];
   for (var i=from; i<=to; i++) {ar.push(i)}
   return ar;
+}
+
+function initializeSketches() {
+  var sketches = $('canvas');
+  _.each(sketches, function(sketch) {
+    Processing.loadSketchFromSources(sketch, [sketch.getAttribute('data-processing-sources')]);
+  });
 }
