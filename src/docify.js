@@ -47,7 +47,7 @@ function parseContent(basePath) {
 
       // Attempt to load text file
       loadText(cat(basePath, "/", i, "/text.txt"), function(textResponse) {
-        section.text = paragraphify(textResponse).replace("\n", "<br>");
+        section.text = paragraphify(textResponse);
         sketchAttemptFinished();
       }, sketchAttemptFinished);
 
@@ -75,7 +75,7 @@ function parseContent(basePath) {
           itemAttemptFinished()
         }, itemAttemptFinished);
         loadText(cat(basePath, "/", i, "/", j, ".txt"), function(itemTextResponse) {
-          sketchItem.text = paragraphify(itemTextResponse).replace("\n", "<br>");
+          sketchItem.text = paragraphify(itemTextResponse);
           section.sketches[j] = sketchItem;
           itemAttemptFinished();
         }, itemAttemptFinished);
@@ -122,7 +122,8 @@ function initializeSketches() {
 }
 
 function paragraphify(str) {
-  return cat('<p>', str.split("\n\n").join("</p><p>"), '</p>');
+  //string.replace(/\n{2,}/g, "\n");
+  return cat('<p>', str.replace(/\n{2,}/g, "\n").split("\n\n").join("</p><p>"), '</p>').split("\n").join("<br>");
 }
 
 function cat() {
