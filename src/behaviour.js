@@ -37,13 +37,18 @@ function resetSketch(resetButton) {
     var res = $("body").find("[data-processing-sources='" + sketchUrl + "']");
     var canvas = res[0];
 
+    var newCanvas = $(canvas).replaceWith('<canvas class="sketch"></canvas>');
+    console.log(newCanvas);
+
+    //console.log(canvas);
+    
     // TODO:getInstanceByID seems to be buggy
-    var instance = Processing.getInstanceById(canvas.id);
-    instance.exit();
+    //var instance = Processing.getInstanceById(canvas.id);
+    //instance.exit();
     //var context = canvas.getContext('2d');
     //context.clearRect(0, 0, canvas.width, canvas.height);
 
-    Processing.loadSketchFromSources(canvas, [sketchUrl]);    
+    Processing.loadSketchFromSources(newCanvas[0], [sketchUrl]);    
 }
 
 
