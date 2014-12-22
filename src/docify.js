@@ -76,7 +76,7 @@ function parseContent(basePath) {
           itemAttemptFinished()
         }, itemAttemptFinished);
         loadText(cat(basePath, "/", i, "/", j, ".txt"), function(itemTextResponse) {
-          sketchItem.text = itemTextResponse.replace("\n", "<br>");
+          sketchItem.text = paragraphify(itemTextResponse).replace("\n", "<br>");
           section.sketches[j] = sketchItem;
           itemAttemptFinished();
         }, itemAttemptFinished);
