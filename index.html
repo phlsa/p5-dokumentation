@@ -26,19 +26,28 @@
 
         <div class="section">
           {{!-- <h3>{{title}}</h3> --}}
-          <div class="text t3">{{text}}</div>
+          <div class="text t3">{{{text}}}</div>
         </div> 
 
         {{#each sketches}}
           <div class="section">
-            <div class="text t1">{{text}}</div>
             {{#if isPDE}}
               <canvas class="sketch" data-processing-sources="{{url}}"></canvas>
             {{else}}
-              <img src="{{url}}">
+              <img class="image" src="{{url}}">
             {{/if}}
+            <div class="text t1">
+              {{{text}}}
+              {{!--
+              {{#if isPDE}}
+                <p class="reset-button" onclick="resetSketch(this)" data-url="{{url}}">Sketch neu starten</p>
+              {{/if}}
+              --}}
+            </div>
           </div>
         {{/each}}
+
+        <div class="section"><div class="text t1"></div></div>
     
       </div>
     {{/each}}
