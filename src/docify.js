@@ -48,7 +48,7 @@ function parseContent(basePath) {
 
       // Attempt to load text file
       loadText(cat(basePath, "/", i, "/text.txt"), function(textResponse) {
-        section.text = textResponse.replace("\n", "<br>");
+        section.text = paragraphify(textResponse).replace("\n", "<br>");
         sketchAttemptFinished();
       }, sketchAttemptFinished);
 
@@ -120,4 +120,8 @@ function initializeSketches() {
   _.each(sketches, function(sketch) {
     Processing.loadSketchFromSources(sketch, [sketch.getAttribute('data-processing-sources')]);
   });
+}
+
+function paragraphify(str) {
+  return cat('<p>', str.split("\n\n").join("</p><p>"), '</p>');
 }
