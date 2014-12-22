@@ -2,7 +2,6 @@ var attemptSections = 50;
 var attemptSketches = 50;
 var passedSectionAttempts = 0;
 
-var cat = String.concat;
 var docify = {};
 
 render();
@@ -124,4 +123,10 @@ function initializeSketches() {
 
 function paragraphify(str) {
   return cat('<p>', str.split("\n\n").join("</p><p>"), '</p>');
+}
+
+function cat() {
+  return _.reduce(arguments, function(memo, item) {
+    return memo+item;
+  }, "");
 }
