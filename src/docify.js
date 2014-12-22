@@ -48,7 +48,7 @@ function parseContent(basePath) {
 
       // Attempt to load text file
       loadText(cat(basePath, "/", i, "/text.txt"), function(textResponse) {
-        section.text = textResponse;
+        section.text = textResponse.replace("\n", "<br>");
         sketchAttemptFinished();
       }, sketchAttemptFinished);
 
@@ -76,7 +76,7 @@ function parseContent(basePath) {
           itemAttemptFinished()
         }, itemAttemptFinished);
         loadText(cat(basePath, "/", i, "/", j, ".txt"), function(itemTextResponse) {
-          sketchItem.text = itemTextResponse;
+          sketchItem.text = itemTextResponse.replace("\n", "<br>");
           section.sketches[j] = sketchItem;
           itemAttemptFinished();
         }, itemAttemptFinished);
