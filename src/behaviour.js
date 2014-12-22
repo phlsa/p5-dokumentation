@@ -1,5 +1,5 @@
 
-
+var ownSketchIdCounter = 0;
 
 docify.ready = function() {
 
@@ -33,6 +33,16 @@ docify.ready = function() {
         });
     });
 
+    $(".t3").each(function(index) {
+        if ($(this).text().length < 250) {
+            $(this).addClass("one-coloumn");
+        }
+    });
+/*
+    $(".image").each(function(index) {
+        console.log( $(this).
+    });
+*/
 };
 
 function resetSketch(resetButton) {
@@ -40,18 +50,12 @@ function resetSketch(resetButton) {
     var res = $("body").find("[data-processing-sources='" + sketchUrl + "']");
     var canvas = res[0];
 
-    var newCanvas = $(canvas).replaceWith('<canvas class="sketch"></canvas>');
-    console.log(newCanvas);
-
-    //console.log(canvas);
-    
-    // TODO:getInstanceByID seems to be buggy
-    //var instance = Processing.getInstanceById(canvas.id);
-    //instance.exit();
-    //var context = canvas.getContext('2d');
-    //context.clearRect(0, 0, canvas.width, canvas.height);
+    $(canvas).replaceWith('<canvas id="p5sketch'+ownSketchIdCounter+'" class="sketch" data-processing-sources="'+sketchUrl+'"></canvas>');
+    var newCanvas = $('canvas#p5sketch'+ownSketchIdCounter);
 
     Processing.loadSketchFromSources(newCanvas[0], [sketchUrl]);    
+
+    ownSketchIdCounter++;
 }
 
 
