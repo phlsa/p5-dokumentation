@@ -123,7 +123,7 @@ function initializeSketches() {
 
 function paragraphify(str) {
   //string.replace(/\n{2,}/g, "\n");
-  return cat('<p>', str.replace(/\n{3,}/g, "\n\n").split("\n\n").join("</p><p>"), '</p>').split("\n").join("<br>");
+  return cat('<p>', str.replace(/\n{3,}/g, "\n\n").split("\n\n").join("</p><p>"), '</p>').split("\n").join("<br>").replace("<code><br>", "<code>");
 }
 
 function cat() {

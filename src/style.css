@@ -115,3 +115,15 @@ body {
 	float:left;
 	margin-top:20px;
 }
+
+code {
+	display: block;
+	background-color: #eee;
+	padding: 3px 5px;
+	white-space: pre-wrap;
+}
+
+p {
+	margin-top: 0;
+	margin-bottom: 1em;
+}
