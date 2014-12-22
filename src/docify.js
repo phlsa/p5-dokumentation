@@ -12,11 +12,19 @@ function render() {
   var template = Handlebars.compile(source);
   var data = parseContent('./content');
   docify.onDataLoad = function() {
-    console.log(_.compact(data));
-    var html = template(_.compact(data));
+    var cleanedData = cleanUpData(data);
+    console.log(cleanedData);
+    var html = template(cleanedData);
     $('body').append(html);
     docify.ready();
   }
+}
+
+function cleanUpData(data) {
+  return _.map(_.compact(data), function(item) {
+    item.sketches = _.compact(item.sketches);
+    return item;
+  });
 }
 
 function parseContent(basePath) {
