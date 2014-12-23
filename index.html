@@ -16,7 +16,7 @@
 <script id="section-template" type="text/x-handlebars-template">
   <div class="menu">
     {{#each this}}
-      <div class="menu-entry">{{title}}</div>
+      <div class="menu-entry">{{{title}}}</div>
     {{/each}}
   </div>
 
@@ -24,10 +24,12 @@
     {{#each this}}
       <div class="chapter">
 
+        {{#if text}}
         <div class="section">
           {{!-- <h3>{{title}}</h3> --}}
           <div class="text t3">{{{text}}}</div>
         </div> 
+        {{/if}}
 
         {{#each sketches}}
           <div class="section">
