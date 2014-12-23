@@ -32,7 +32,7 @@ Text files have to be saved in Unicode format. If some of the special characters
 
 
 If you want to explain some parts of the code of your processing sketches, you can use the `<code>` tag to start a code block and `</code>` to end it. 
-```html
+```
 <code>
 for (float i=0; i<10; i++) {
   ellipse(i*30, 300, 10, 10);
