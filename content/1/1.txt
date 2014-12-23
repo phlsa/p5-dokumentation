@@ -1,1 +1,7 @@
-Beschreibung für den ersten Sketch, den ich jetzt mal ein wenig länger mache.
+Explanation for this first sketch. You might use the code tag to have some lines of text formatted with a monospaced font.
+
+<code>
+for (float i=0; i<10; i++) {
+  ellipse(i*30, 300, 10, 10);
+}
+</code>

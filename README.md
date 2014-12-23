@@ -7,6 +7,8 @@ This frameworks generates a web documentation from a folders and files. You can 
 - text and image
 - text and processing sketch
 
+You'll also find some remarks on the usage of this documentation template in the dummy content.
+
 ### Folder structure 
 To achieve this, the folders and files have to be in the folder 'content' and named in the following way:
 * 1
