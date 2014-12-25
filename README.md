@@ -42,6 +42,8 @@ for (float i=0; i<10; i++) {
 </code>
 ```
 
+### Headlines
+Headlines are used to build the menu. If you want to have the headline of a chapter displayed as a sub-chapter, just begin the text of the headline with a space or a tab.
 
 ## Helping out
 If you have any suggestions or encounter bugs, please feel free to tell us in the issues section.
