@@ -1,0 +1,1 @@
+If you want to have the headline of a chapter displayed as a sub-chapter, just begin the text of the headline with a space or a tab.

@@ -51,6 +51,10 @@ body {
 .menu-entry.selected {
 	color: #000;
 }
+.menu-entry.subchapter {
+	margin-top:0px;
+	margin-left: 20px;
+}
 
 .content {
 	float: right;
