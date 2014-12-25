@@ -11,7 +11,7 @@ docify.ready = function() {
     $(".menu-entry").each(function(index) {
         var that = this;
 
-        if ($(that).text().startsWith(' ') || $(that).text().startsWith('\t')) {
+        if ($(that).text().charAt(0)==' ' || $(that).text().charAt(0)=='\t') {
             $(that).addClass('subchapter');
         }
 
