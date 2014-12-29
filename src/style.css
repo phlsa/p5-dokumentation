@@ -4,7 +4,7 @@
 body {
 	font-family: 'Helvetica', sans-serif;
 	font-size: 13px;
-	line-height: 1.4em;
+	line-height: 17px;
 	text-align: left;
 	text-rendering: optimizeLegibility;
 	font-variant-ligatures: inherit;
@@ -126,15 +126,22 @@ body {
 	margin-top:20px;
 }
 
+p {
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+p.code {
+	margin-bottom: 0px;
+}
 code {
 	display: block;
 	background-color: #eee;
 	padding: 3px 5px;
 	white-space: pre-wrap;
 	font-size: 11px;
-}
 
-p {
 	margin-top: 0;
-	margin-bottom: 1em;
+	margin-bottom: 0;
+	border: solid 0px #eee;
+	border-bottom-width: 10px;
 }

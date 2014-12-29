@@ -42,6 +42,9 @@ docify.ready = function() {
             $(this).addClass("one-coloumn");
         }
     });
+
+    $( "p:has(code)" ).addClass( "code" );
+
     /*
         $(".image").each(function(index) {
             console.log( $(this).
