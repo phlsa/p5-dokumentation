@@ -43,8 +43,8 @@ docify.ready = function() {
         }
     });
 
-    $( "p:has(code)" ).addClass( "code" );
-
+    $("p:has(code)").addClass("code");
+    $("p.code").prev("p.code").addClass("not-last");
     /*
         $(".image").each(function(index) {
             console.log( $(this).

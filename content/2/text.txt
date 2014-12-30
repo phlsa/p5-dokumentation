@@ -1,6 +1,8 @@
 An introduction text with a very long code block.
 
 <code>
+void setup() {
+  ...
   timeline1.setValue( X, 120 );
   timeline1.setValue( Y, 200 );
   timeline1.addKeyframe( 4, A, 360 );
@@ -28,4 +30,5 @@ An introduction text with a very long code block.
   timeline6.setValue( Y, 400 );
   timeline6.setValue( Y_OFFSET, 60 );
   timeline6.addKeyframe( 4, A, 360 );
+}
 </code>

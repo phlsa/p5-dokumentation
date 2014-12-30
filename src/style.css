@@ -130,18 +130,18 @@ p {
 	margin-top: 0px;
 	margin-bottom: 10px;
 }
-p.code {
+p.code.not-last {
 	margin-bottom: 0px;
+	margin-top: 0;
+	margin-bottom: 0;
+	border: solid 0px #eee;
+	border-bottom-width: 10px;
 }
+
 code {
 	display: block;
 	background-color: #eee;
 	padding: 3px 5px;
 	white-space: pre-wrap;
 	font-size: 11px;
-
-	margin-top: 0;
-	margin-bottom: 0;
-	border: solid 0px #eee;
-	border-bottom-width: 10px;
 }
