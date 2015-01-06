@@ -1,1 +1,1 @@
-A short description of what's seen on the second image.
+This is a scalable vector graphics image (SVG). Because it is a vector image it's always shown with the best resolution. Consider to save your images in this format.

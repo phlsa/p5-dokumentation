@@ -33,14 +33,18 @@ function parseContent(basePath) {
 
     // Attempt to load the headline file of a section
     loadText(cat(basePath, "/", i, "/headline.txt"), function(headlineResponse) {
-      var section = {title: headlineResponse, text: "", sketches: []};
-      
+      var section = {
+        title: headlineResponse,
+        text: "",
+        sketches: []
+      };
+
       // Setup loading for sub-items
       var sketchPlaceholderArray = numberedArray(1, attemptSketches);
       var sketchesQueriedCount = 0;
       var sketchAttemptFinished = function() {
         sketchesQueriedCount++;
-        if (sketchesQueriedCount == sketchPlaceholderArray.length+1) { // +1 because we're simply counting the global description as a sketch item
+        if (sketchesQueriedCount == sketchPlaceholderArray.length + 1) { // +1 because we're simply counting the global description as a sketch item
           sectionAttemptFinished();
         }
       }
@@ -53,7 +57,11 @@ function parseContent(basePath) {
 
       // Attempt to load sketches
       _.each(sketchPlaceholderArray, function(j) {
-        var sketchItem = {url: "", text:"", isPDE: false};
+        var sketchItem = {
+          url: "",
+          text: "",
+          isPDE: false
+        };
         var itemsQueriedCount = 0;
         var itemAttemptFinished = function() {
           itemsQueriedCount++;
@@ -68,8 +76,26 @@ function parseContent(basePath) {
           section.sketches[j] = sketchItem;
           itemAttemptFinished();
         }, itemAttemptFinished);
+        loadText(cat(basePath, "/", i, "/", j, ".jpg"), function(jpgResponse) {
+          sketchItem.url = cat(basePath, "/", i, "/", j, ".jpg");
+          sketchItem.isPDE = false;
+          section.sketches[j] = sketchItem;
+          itemAttemptFinished()
+        }, itemAttemptFinished);
+        loadText(cat(basePath, "/", i, "/", j, ".jpeg"), function(jpgResponse) {
+          sketchItem.url = cat(basePath, "/", i, "/", j, ".jpeg");
+          sketchItem.isPDE = false;
+          section.sketches[j] = sketchItem;
+          itemAttemptFinished()
+        }, itemAttemptFinished);
         loadText(cat(basePath, "/", i, "/", j, ".png"), function(pngResponse) {
           sketchItem.url = cat(basePath, "/", i, "/", j, ".png");
+          sketchItem.isPDE = false;
+          section.sketches[j] = sketchItem;
+          itemAttemptFinished()
+        }, itemAttemptFinished);
+        loadText(cat(basePath, "/", i, "/", j, ".svg"), function(svgResponse) {
+          sketchItem.url = cat(basePath, "/", i, "/", j, ".svg");
           sketchItem.isPDE = false;
           section.sketches[j] = sketchItem;
           itemAttemptFinished()
@@ -110,7 +136,9 @@ function loadText(path, successFunction, errorFunction) {
 
 function numberedArray(from, to) {
   var ar = [];
-  for (var i=from; i<=to; i++) {ar.push(i)}
+  for (var i = from; i <= to; i++) {
+    ar.push(i)
+  }
   return ar;
 }
 
@@ -128,6 +156,6 @@ function paragraphify(str) {
 
 function cat() {
   return _.reduce(arguments, function(memo, item) {
-    return memo+item;
+    return memo + item;
   }, "");
 }
