@@ -57,8 +57,13 @@ function resetSketch(resetButton) {
     var res = $("body").find("[data-processing-sources='" + sketchUrl + "']");
     var canvas = res[0];
 
-    $(canvas).replaceWith('<canvas id="p5sketch' + ownSketchIdCounter + '" class="sketch" data-processing-sources="' + sketchUrl + '"></canvas>');
+    // remember dimensions of the sketch
+    var w = canvas.getAttribute('width');
+    var h = canvas.getAttribute('height');
+
+    $(canvas).replaceWith('<canvas id="p5sketch' + ownSketchIdCounter + '" class="sketch" data-processing-sources="' + sketchUrl + '"></canvas>')
     var newCanvas = $('canvas#p5sketch' + ownSketchIdCounter);
+    newCanvas.css({width: w+"px", height: h+"px"}); // set the new canvas to the remembered dimensions to prevent the page from jumping
 
     Processing.loadSketchFromSources(newCanvas[0], [sketchUrl]);
 
