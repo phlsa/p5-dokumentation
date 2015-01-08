@@ -44,13 +44,16 @@ for (float i=0; i<10; i++) {
 ### Headlines
 Headlines are used to build the menu. If you want to have the headline of a chapter displayed as a sub-chapter, just begin the text of the headline with a space or a tab.
 
-### Image
-Image can be one of these formats:
+### Images
+Images can be one of these formats:
 * jpg (or jpeg)
 * png
 * svg
 
 All images will be scaled to the width of 600 pixels. Because SVG is a vector based format (scalable vector graphics), it will allways be shown in the best quality possible. Consider to save all your images as SVGs.
+
+### Sketches
+Like images, all sketches will be scaled to the width of 600 pixels. If your sketch has another width it will still work, but might lead to strange behaviour if you're using mouse input. 
 
 ## Helping out
 If you have any suggestions or encounter bugs, please feel free to tell us in the issues section.
