@@ -5,3 +5,17 @@ for (float i=0; i<10; i++) {
   ellipse(i*30, 300, 10, 10);
 }
 </code>
+
+Of course you can have more than one code block in a text and more than one paragraph in a code block. It is quite tricky to make all these things look good.
+
+<code>
+pushMatrix();
+rotate(radians(45));
+rect(0, 0, 20, 100);
+popMatrix();
+
+pushMatrix();
+rotate(radians(135));
+rect(0, 0, 20, 100);
+popMatrix();
+</code>

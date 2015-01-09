@@ -154,7 +154,7 @@ function paragraphify(str) {
   return cat('<p>', str.replace(/\n{3,}/g, "\n\n")                  // make sure there are no more than two newlines in a row
                        .split("\n\n").join("</p><p>"), '</p>')      // convert double newlines into <p></p> tags
                        .split("\n").join("<br>")                    // replace single newlines with <br> tags
-                       .replace("<code><br>", "<code>");            // remove newlines right after opening <code> tags
+                       .replace(/\<code\>\<br\>/g, "<code>");       // remove newlines right after opening <code> tags
 }
 
 function cat() {
