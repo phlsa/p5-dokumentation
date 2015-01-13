@@ -26,6 +26,13 @@ To achieve this, the folders and files have to be in the folder 'content' and na
   - ...
 * ...
 
+### Documentation information
+In the content folder there should always be these four text files:
+* course.txt
+* semester.txt
+* teacher.txt
+* student.txt
+These files will be used to fill the upper left area of the documentation with information about the course and student who did this documentation.
 
 ### Text files
 In most cases it doesn't hurt if a text file misses or is empty, except for the headline.txt, because this is used to build the menu.
