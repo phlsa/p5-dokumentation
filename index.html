@@ -14,14 +14,34 @@
 
 </body>
 <script id="section-template" type="text/x-handlebars-template">
-  <div class="menu">
-    {{#each this}}
-      <div class="menu-entry">{{{title}}}</div>
-    {{/each}}
+  <p class="logo">
+    <span style="color:#f00"><b>H<span class="invis">ochschule</span> f<span class="invis">ür</span> G<span class="invis">estaltung</span></b></span><br><br><br>
+    <b>Hochschule für Gestaltung</b><br><br>
+    <b>Schwäbisch Gmünd</b>
+  </p>
+
+  <div class="left-col">
+    <div class="header">
+      <p>
+        <b>{{course}}</b><br>
+        {{semester}}<br>
+        {{teacher}}
+      </p>
+      <p>
+        Dokumentation von<br> 
+        <b>{{student}}</b>
+      </p>
+    </div>
+
+    <div class="menu">
+      {{#each sections}}
+        <div class="menu-entry">{{{title}}}</div>
+      {{/each}}
+    </div>
   </div>
 
   <div class="content">
-    {{#each this}}
+    {{#each sections}}
       <div class="chapter">
 
         {{#if text}}

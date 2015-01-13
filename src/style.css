@@ -4,7 +4,7 @@
 body {
 	font-family: 'Helvetica', sans-serif;
 	font-size: 13px;
-	line-height: 17px;
+	line-height: 18px;
 	text-align: left;
 	text-rendering: optimizeLegibility;
 	font-variant-ligatures: inherit;
@@ -15,7 +15,7 @@ body {
 	hyphens: auto; 
 
 	width: 1220px;
-	margin-top:30px;
+	margin-top:10px;
 	margin-left:30px;
 	-webkit-box-sizing:border-box;
 	-moz-box-sizing:border-box;
@@ -24,9 +24,34 @@ body {
 	cursor:default;
 }
 
-.menu {
+
+.logo {
+	font-size: 11px;
+	line-height: 7px;
+	margin-bottom:20px;
+	margin-left:0px;
+	-webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.invis {
+	color:rgba(255, 255, 255, 0);
+}
+
+.left-col {
+	clear:both;
 	width: 290px;
 	float:left;
+}
+
+.header {
+	border-width: 1px 0px 0px 0px;
+	border-style: solid;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+.menu {
 	border-width: 1px 0px 0px 0px;
 	border-style: solid;
 	-webkit-user-select: none;
@@ -59,6 +84,7 @@ body {
 .content {
 	float: right;
 	width: 910px;
+	min-width: 910px;
 }
 
 .chapter {
@@ -145,3 +171,5 @@ code {
 	white-space: pre-wrap;
 	font-size: 11px;
 }
+
+

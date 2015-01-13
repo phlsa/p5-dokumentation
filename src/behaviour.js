@@ -16,6 +16,9 @@ docify.ready = function() {
         }
 
         $(this).click(function() {
+            var chapterTop = $(".chapter:nth-child(" + (selectedChapter + 1) + ")").css("top");
+            chapterTop = parseInt(chapterTop);
+
             var dir = 1;
             if (index > selectedChapter) {
                 dir = -1;
@@ -24,14 +27,14 @@ docify.ready = function() {
             $(".menu-entry:nth-child(" + (selectedChapter + 1) + ")").removeClass("selected");
             $(".chapter:nth-child(" + (selectedChapter + 1) + ")").fadeOut({
                 progress: function(obj, p, r) {
-                    $(obj.elem).css("top", 30 + dir * (p) * 50);
+                    $(obj.elem).css("top", chapterTop + dir * (p) * 50);
                 }
             });
             selectedChapter = index;
             $(".menu-entry:nth-child(" + (selectedChapter + 1) + ")").addClass("selected");
             $(".chapter:nth-child(" + (selectedChapter + 1) + ")").fadeIn({
                 progress: function(obj, p, r) {
-                    $(obj.elem).css("top", 30 - dir * (1 - p) * 50);
+                    $(obj.elem).css("top", chapterTop - dir * (1 - p) * 50);
                 }
             });
         });

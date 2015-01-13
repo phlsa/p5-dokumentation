@@ -1,3 +1,10 @@
+/*Handlebars.registerHelper('sectionlist', function() {
+  console.log("sectionlist: ");
+  console.log(this);
+
+  return obj.sections;
+});*/
+
 var attemptSections = 50;
 var attemptSketches = 50;
 var passedSectionAttempts = 0;
@@ -11,9 +18,10 @@ function render() {
   var template = Handlebars.compile(source);
   var data = parseContent('./content');
   docify.onDataLoad = function() {
-    var cleanedData = cleanUpData(data);
-    console.log(cleanedData);
-    var html = template(cleanedData);
+    var cleanedSections = cleanUpData(data.sections);
+    data.sections = cleanedSections
+    console.log(data);
+    var html = template(data);
     $('body').append(html);
     docify.ready();
     initializeSketches();
@@ -28,7 +36,24 @@ function cleanUpData(data) {
 }
 
 function parseContent(basePath) {
-  var allContent = [];
+  //var allContent = [];
+  var allContent = {sections:[]};
+
+  // Attempt to load the header texts
+  loadText(cat(basePath, "/course.txt"), function(res) {
+    allContent.course = res;
+  });
+  loadText(cat(basePath, "/semester.txt"), function(res) {
+    allContent.semester = res;
+  });
+  loadText(cat(basePath, "/teacher.txt"), function(res) {
+    allContent.teacher = res;
+  });
+  loadText(cat(basePath, "/student.txt"), function(res) {
+    allContent.student = res;
+  });
+
+
   _.each(numberedArray(1, attemptSections), function(i) {
 
     // Attempt to load the headline file of a section
@@ -107,10 +132,11 @@ function parseContent(basePath) {
         }, itemAttemptFinished);
       });
 
-      allContent[i] = section;
+      //allContent[i] = section;
+      allContent.sections[i] = section;
     }, sectionAttemptFinished);
   });
-
+  console.log(allContent);
   return allContent;
 }
 
