@@ -49,8 +49,9 @@ body {
 	border-width: 1px 0px 0px 0px;
 	border-style: solid;
 	padding-top: 20px;
-	padding-bottom: 10px;
+	padding-bottom: 20px;
 }
+
 .menu {
 	border-width: 1px 0px 0px 0px;
 	border-style: solid;
@@ -59,7 +60,6 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
-
 .menu-entry {
 	margin-top:10px;
 	font-weight: bold;	
@@ -71,8 +71,6 @@ body {
 .menu-entry:hover {
 	color: #777;
 }
-
-
 .menu-entry.selected {
 	color: #000;
 }

@@ -19,8 +19,7 @@ function render() {
   var data = parseContent('./content');
   docify.onDataLoad = function() {
     var cleanedSections = cleanUpData(data.sections);
-    data.sections = cleanedSections
-    console.log(data);
+    data.sections = cleanedSections;
     var html = template(data);
     $('body').append(html);
     docify.ready();

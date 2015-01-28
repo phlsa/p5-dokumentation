@@ -6,7 +6,7 @@ for (float i=0; i<10; i++) {
 }
 </code>
 
-Of course you can have more than one code block in a text and more than one paragraph in a code block. It is quite tricky to make all these things look good.
+Of course you can have more than one code block in a text and more than one paragraph in a code block.
 
 <code>
 pushMatrix();

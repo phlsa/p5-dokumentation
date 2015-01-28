@@ -3,6 +3,8 @@ var ownSketchIdCounter = 0;
 docify.ready = function() {
 
     var selectedChapter = 0;
+    var chapterTop = $(".chapter:nth-child(" + (selectedChapter + 1) + ")").css("top");
+    chapterTop = parseInt(chapterTop);
 
     $(".menu-entry").first().addClass("selected")
     $(".chapter").first().fadeIn();
@@ -16,8 +18,7 @@ docify.ready = function() {
         }
 
         $(this).click(function() {
-            var chapterTop = $(".chapter:nth-child(" + (selectedChapter + 1) + ")").css("top");
-            chapterTop = parseInt(chapterTop);
+            var scrollY = window.pageYOffset;
 
             var dir = 1;
             if (index > selectedChapter) {
@@ -28,6 +29,7 @@ docify.ready = function() {
             $(".chapter:nth-child(" + (selectedChapter + 1) + ")").fadeOut({
                 progress: function(obj, p, r) {
                     $(obj.elem).css("top", chapterTop + dir * (p) * 50);
+                    window.scrollTo( 0, (1-p) * scrollY );
                 }
             });
             selectedChapter = index;
