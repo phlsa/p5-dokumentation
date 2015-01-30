@@ -23,7 +23,7 @@ function render() {
     var html = template(data);
     $('body').append(html);
     docify.ready();
-    initializeSketches();
+    //initializeSketches();
   }
 }
 
